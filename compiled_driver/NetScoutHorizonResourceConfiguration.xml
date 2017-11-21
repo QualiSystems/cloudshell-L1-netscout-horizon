@@ -210,6 +210,17 @@
         <AttributeValue Name="Password" Value="" />
       </AttributeValues>
       <Models>
+        <ResourceModel Name="OS-192" Description="NetScout OS-192 Driver" SupportsConcurrentCommands="false">
+          <AttachedAttributes />
+          <AttributeValues>
+            <AttributeValue Name="User" Value="" />
+            <AttributeValue Name="Password" Value="" />
+          </AttributeValues>
+          <ParentModels />
+          <Drivers>
+            <DriverName>NetScout Horizon 390x Driver</DriverName>
+          </Drivers>
+        </ResourceModel>
         <ResourceModel Name="3900" Description="NetScout 3900 Driver" SupportsConcurrentCommands="false">
           <AttachedAttributes />
           <AttributeValues>
@@ -218,7 +229,7 @@
           </AttributeValues>
           <ParentModels />
           <Drivers>
-            <DriverName>NetScout 390x Driver</DriverName>
+            <DriverName>NetScout Horizon 390x Driver</DriverName>
           </Drivers>
         </ResourceModel>
         <ResourceModel Name="3901" Description="NetScout 3901 Driver" SupportsConcurrentCommands="false">
@@ -229,7 +240,7 @@
           </AttributeValues>
           <ParentModels />
           <Drivers>
-            <DriverName>NetScout 390x Driver</DriverName>
+            <DriverName>NetScout Horizon 390x Driver</DriverName>
           </Drivers>
         </ResourceModel>
         <ResourceModel Name="3903" Description="NetScout 3903 Driver" SupportsConcurrentCommands="false">
@@ -240,7 +251,7 @@
           </AttributeValues>
           <ParentModels />
           <Drivers>
-            <DriverName>NetScout 390x Driver</DriverName>
+            <DriverName>NetScout Horizon 390x Driver</DriverName>
           </Drivers>
         </ResourceModel>
       </Models>
@@ -315,6 +326,28 @@
           </ParentModels>
           <Drivers />
         </ResourceModel>
+        <ResourceModel Name="Port T-BLADE" SupportsConcurrentCommands="false">
+          <AttachedAttributes>
+            <AttachedAttribute Name="Protocol" IsOverridable="true" IsLocal="false">
+              <AllowedValues>
+                <AllowedValue>2</AllowedValue>
+              </AllowedValues>
+            </AttachedAttribute>
+            <AttachedAttribute Name="Protocol Type" IsOverridable="true" IsLocal="false">
+              <AllowedValues>
+                <AllowedValue>0</AllowedValue>
+              </AllowedValues>
+            </AttachedAttribute>
+          </AttachedAttributes>
+          <AttributeValues>
+            <AttributeValue Name="Protocol" Value="2" />
+            <AttributeValue Name="Protocol Type" Value="0" />
+          </AttributeValues>
+          <ParentModels>
+            <ParentModelName>T-BLADE</ParentModelName>
+          </ParentModels>
+          <Drivers />
+        </ResourceModel>
       </Models>
     </ResourceFamily>
     <ResourceFamily Name="L1 Switch Chassis Controller" IsMappableContainer="false" IsMappable="false" IsConnectable="false" IsLicenseCheckRequired="false" IsAllConnectedContainer="false" IsLockedByDefault="false" AcceptsMultipleConnections="false" Description="" SupportsMulticastMapping="false" SupportsLoopbackMapping="false" IsPowerSwitch="false" IsConsoleServer="false" ResourceType="Resource" Searchable="true">
@@ -325,6 +358,7 @@
           <AttachedAttributes />
           <AttributeValues />
           <ParentModels>
+            <ParentModelName>OS-192</ParentModelName>
             <ParentModelName>3900</ParentModelName>
             <ParentModelName>3901</ParentModelName>
             <ParentModelName>3903</ParentModelName>
@@ -361,10 +395,18 @@
           </ParentModels>
           <Drivers />
         </ResourceModel>
+        <ResourceModel Name="T-BLADE" Description="" SupportsConcurrentCommands="false">
+          <AttachedAttributes />
+          <AttributeValues />
+          <ParentModels>
+            <ParentModelName>NetScout Switch 390x Chassis Controller</ParentModelName>
+          </ParentModels>
+          <Drivers />
+        </ResourceModel>
       </Models>
     </ResourceFamily>
   </ResourceFamilies>
   <DriverDescriptors>
-    <DriverDescriptor Name="NetScout 390x Driver" DriverType="L1SwitchTclDriver" CustomParams="NetScout_Horizon.exe" />
+    <DriverDescriptor Name="NetScout Horizon 390x Driver" DriverType="L1SwitchTclDriver" CustomParams="NetScout_Horizon.exe" />
   </DriverDescriptors>
 </ResourceManagementExportImport>
